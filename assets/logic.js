@@ -103,6 +103,13 @@ function checkAnswer(index) {
 
 // Function to end quiz
 function endQuiz() {
-  
-
+  // clear timer
+  clearInterval(timerId);
+  // Show results screen
+  resultScreen.style.display = "block";
+  // Calculate and show final score
+  var finalScore = Math.round((score / totalQuestions) * 100);
+  scoreDisplay.innerText = finalScore + "%";
+  // Hide start button
+  startBtn.style.display = "none";
 }
