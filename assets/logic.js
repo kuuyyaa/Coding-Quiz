@@ -22,11 +22,38 @@ startButton.addEventListener("click", startQuiz);
 // Event listener for the submit button
 submitButton.addEventListener("click", saveScore);
 
-
+// Function to start quiz
 function startQuiz() {
-
-} 
-
-function saveScore() {
+  // Variable initialisation
+  secondsLeft = 60;
+  score = 0;
+  currentQuestionIndex = 0;
+  // Hide Start Screen and show Question Container
+  document.getElementById("start-screen").classList.add("hide");
+  document.getElementById("questions").classList.remove("hide");
+  // Start timer
+  timer();
+  // Display first question
   
+
+
+}
+
+
+
+// Function to save score
+function saveScore() {
+
+}
+
+// Function to start timer
+function timer(){
+  timer = setInterval(function () {
+    secondsLeft--;
+    timerDisplay.textContent = secondsLeft;
+
+    if (timeLeft <= 0) {
+      endQuiz();
+    }
+  }, 1000);
 }
