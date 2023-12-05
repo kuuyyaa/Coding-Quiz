@@ -83,3 +83,26 @@ function displayQuestion() {
     choicesContainer.appendChild(choiceButton);
   });
 }
+
+// Function to check the selected answer
+function checkAnswer(index) {
+  var currentQuestion = questions[currentQuestionIndex];
+
+  if (currentQuestion.correctIndex === index) {
+    // Correct answer
+    score += 10; 
+  } else {
+    // Incorrect answer, penalize time
+    timeLeft -= 10; 
+  }
+
+  // Move to the next question
+  currentQuestionIndex++;
+  displayQuestion();
+}
+
+// Function to end quiz
+function endQuiz() {
+  
+
+}
