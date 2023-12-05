@@ -34,9 +34,7 @@ function startQuiz() {
   // Start timer
   timer();
   // Display first question
-  
-
-
+  displayQuestion();
 }
 
 
@@ -56,4 +54,32 @@ function timer(){
       endQuiz();
     }
   }, 1000);
+}
+
+// Function to display question
+function displayQuestion() {
+  // Get questions from array
+  var currentQuestion = questions[currentQuestionIndex];
+
+  // Check if there are more questions
+  if (!currentQuestion) {
+    endQuiz();
+    return;
+  }
+
+  // Update the question title
+  questionTitle.textContent = currentQuestion.question;
+
+  // Clear previous choices
+  choicesContainer.innerHTML = "";
+
+  // Create buttons for each choice
+  currentQuestion.choices.forEach(function (choice, index) {
+    var choiceButton = document.createElement("button");
+    choiceButton.textContent = choice;
+    choiceButton.addEventListener("click", function () {
+      checkAnswer(index);
+    });
+    choicesContainer.appendChild(choiceButton);
+  });
 }
